@@ -1,8 +1,12 @@
+let guessedNumber
+
 function clickedButton(element) {
-    console.log(element.value)
+    guessedNumber = element.value
+    // console.log(guessedNumber)
 }
 
-let timeValue = 10
+let timeValue = 5
+let score
 
 function startTimer(time) {
     counter = setInterval(timer, 1000)
@@ -18,8 +22,12 @@ function startTimer(time) {
             let diceNumber = "images/dice-" + randomNumber + ".png"
             let image = document.querySelector("img")
             image.setAttribute("src", diceNumber)
+            if(guessedNumber == randomNumber) {
+                score += 1
+                console.log(score)
+            }
         }
     } 
 }
 
-startTimer(10)
+startTimer(timeValue)
