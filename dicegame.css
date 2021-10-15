@@ -63,3 +63,7 @@
     color: white;
     font-size: 20px;
 }
+
+.play-btn:hover {
+    background-color: #5cb1b3;
+}
