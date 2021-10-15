@@ -27,6 +27,11 @@ function startTimer(time) {
                 console.log(score)
                 let finalScore = document.getElementById("score")
                 finalScore.textContent = "Score: " + score
+                let outcome = document.getElementById("outcome")
+                outcome.textContent = "Your choice was correct!"
+            } else {
+                let outcome = document.getElementById("outcome")
+                outcome.textContent = "Your choice was wrong!"
             }
         }
     } 
