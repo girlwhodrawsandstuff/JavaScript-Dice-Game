@@ -1,4 +1,4 @@
-let guessedNumber
+let guessedNumber = 0
 
 function clickedButton(element) {
     guessedNumber = element.value
@@ -40,9 +40,14 @@ function startTimer(time) {
                 finalScore.textContent = "Score: " + score
                 let outcome = document.getElementById("outcome")
                 outcome.textContent = "Your choice was correct!"
-            } else {
+                guessedNumber = 0
+            } else if(guessedNumber != randomNumber && guessedNumber != 0) {
                 let outcome = document.getElementById("outcome")
                 outcome.textContent = "Your choice was wrong!"
+                guessedNumber = 0
+            } else {
+                let outcome = document.getElementById("outcome")
+                outcome.textContent = "You haven't guessed this round"
             }
         }
     } 
