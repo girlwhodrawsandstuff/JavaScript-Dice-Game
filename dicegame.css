@@ -66,6 +66,7 @@
 
 .play-btn:hover {
     background-color: #5cb1b3;
+    cursor: pointer;
 }
 
 #guessed-number{
