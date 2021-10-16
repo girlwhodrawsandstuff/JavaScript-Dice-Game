@@ -1,12 +1,6 @@
-// constants
 const CORRECT_CHOICE_SELECTED_MESSAGE = "Your choice was correct!";
 const WRONG_CHOICE_SELECTED_MESSAGE = "Your choice was wrong!";
 const NO_CHOICE_SELECTED_MESSAGE = "You haven't guessed this round";
-const GUESS = "Guess: ";
-const SCORE = "Score: ";
-
-// - separate functions, for example updateDiceValue(), renderDice(), renderRoundOutcome(), updateScore(),
-// - Store all things related to timer in separate functions
 
 function renderTimer(time) {
   document.getElementById("timer").textContent = time;
@@ -22,12 +16,12 @@ function renderOutcome(outcomeString) {
 }
 
 function renderGuessedValue(guessedValue) {
-  document.getElementById("guessed-number").textContent = GUESS + guessedValue;
+  document.getElementById("guessed-number").textContent = "Guess: " + guessedValue;
 }
 
 function renderScore(score) {
   console.log(score);
-  document.getElementById("score").textContent = SCORE + score;
+  document.getElementById("score").textContent = "Score: " + score;
 }
 
 const seconds = 5;
