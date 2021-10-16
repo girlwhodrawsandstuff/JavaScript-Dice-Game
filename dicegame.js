@@ -9,25 +9,25 @@ const SCORE = "Score: ";
 // - Store all things related to timer in separate functions
 
 function renderTimer(time) {
-    document.getElementById("timer").textContent = time;
+  document.getElementById("timer").textContent = time;
 }
 
 function renderDice(diceValue) {
-    const diceImage = "images/dice-" + diceValue + ".png";
-    document.querySelector("img").setAttribute("src", diceImage);
+  const diceImage = "images/dice-" + diceValue + ".png";
+  document.querySelector("img").setAttribute("src", diceImage);
 }
 
 function renderOutcome(outcomeString) {
-    document.getElementById("outcome").textContent = outcomeString;
+  document.getElementById("outcome").textContent = outcomeString;
 }
 
 function renderGuessedValue(guessedValue) {
-    document.getElementById("guessed-number").textContent = GUESS + guessedValue;
+  document.getElementById("guessed-number").textContent = GUESS + guessedValue;
 }
 
 function renderScore(score) {
-    console.log(score);
-    document.getElementById("score").textContent = SCORE + score;
+  console.log(score);
+  document.getElementById("score").textContent = SCORE + score;
 }
 
 const seconds = 5;
@@ -35,38 +35,38 @@ let guessedNumber = 0;
 let score = 0;
 
 function handleButtonClick(element) {
-    guessedNumber = element.value;
-    renderGuessedValue(guessedNumber);
+  guessedNumber = element.value;
+  renderGuessedValue(guessedNumber);
 }
 
 function startTimer(seconds) {
-    let counter = setInterval(timer, 1000);
+  let counter = setInterval(timer, 1000);
 
-    function timer() {
-        renderTimer(seconds);
+  function timer() {
+    renderTimer(seconds);
 
-        if(seconds === 0) {
-            clearInterval(counter);
-            startTimer(5);
+    if (seconds === 0) {
+      clearInterval(counter);
+      startTimer(5);
 
-            const diceValue = Math.floor(Math.random()*6) + 1;
-            renderDice(diceValue);
+      const diceValue = Math.floor(Math.random() * 6) + 1;
+      renderDice(diceValue);
 
-            if(guessedNumber === diceValue) {
-                score += 1;
-                renderScore(score);
-                renderOutcome(CORRECT_CHOICE_SELECTED_MESSAGE);
-                guessedNumber = 0;
-            } else if(guessedNumber != diceValue && guessedNumber != 0) {
-                renderOutcome(WRONG_CHOICE_SELECTED_MESSAGE);
-                guessedNumber = 0;
-            } else {
-                renderOutcome(NO_CHOICE_SELECTED_MESSAGE);
-            }
-        }
+      if (guessedNumber === diceValue) {
+        score += 1;
+        renderScore(score);
+        renderOutcome(CORRECT_CHOICE_SELECTED_MESSAGE);
+        guessedNumber = 0;
+      } else if (guessedNumber != diceValue && guessedNumber != 0) {
+        renderOutcome(WRONG_CHOICE_SELECTED_MESSAGE);
+        guessedNumber = 0;
+      } else {
+        renderOutcome(NO_CHOICE_SELECTED_MESSAGE);
+      }
+    }
 
-        seconds--;
-    } 
+    seconds--;
+  }
 }
 
 startTimer(seconds);
