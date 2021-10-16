@@ -5,19 +5,8 @@ const NO_CHOICE_SELECTED_MESSAGE = "You haven't guessed this round";
 const GUESS = "Guess: ";
 const SCORE = "Score: ";
 
-let guessedNumber = 0;
-
-function clickedButton(element) {
-    guessedNumber = element.value;
-    document.getElementById("guessed-number").textContent = GUESS + guessedNumber;
-}
-
 // - separate functions, for example updateDiceValue(), renderDice(), renderRoundOutcome(), updateScore(),
 // - Store all things related to timer in separate functions
-
-
-const seconds = 5;
-let score = 0;
 
 function renderTimer(time) {
     document.getElementById("timer").textContent = time;
@@ -32,8 +21,27 @@ function renderOutcome(outcomeString) {
     document.getElementById("outcome").textContent = outcomeString;
 }
 
+function renderGuessedValue(guessedValue) {
+    document.getElementById("guessed-number").textContent = GUESS + guessedValue;
+}
+
+function renderScore(score) {
+    console.log(score);
+    document.getElementById("score").textContent = SCORE + score;
+}
+
+const seconds = 5;
+let guessedNumber = 0;
+let score = 0;
+
+function clickedButton(element) {
+    guessedNumber = element.value;
+    renderGuessedValue(guessedNumber);
+}
+
 function startTimer(seconds) {
     let counter = setInterval(timer, 1000);
+
     function timer() {
         renderTimer(seconds);
 
@@ -41,14 +49,12 @@ function startTimer(seconds) {
             clearInterval(counter);
             startTimer(5);
 
-            let diceValue = Math.floor(Math.random()*6) + 1;
+            const diceValue = Math.floor(Math.random()*6) + 1;
             renderDice(diceValue);
 
-            if(guessedNumber == diceValue) {
+            if(guessedNumber === diceValue) {
                 score += 1;
-                console.log(score);
-                let finalScore = document.getElementById("score");
-                finalScore.textContent = SCORE + score;
+                renderScore(score);
                 renderOutcome(CORRECT_CHOICE_SELECTED_MESSAGE);
                 guessedNumber = 0;
             } else if(guessedNumber != diceValue && guessedNumber != 0) {
