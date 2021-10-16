@@ -34,7 +34,7 @@ const seconds = 5;
 let guessedNumber = 0;
 let score = 0;
 
-function clickedButton(element) {
+function handleButtonClick(element) {
     guessedNumber = element.value;
     renderGuessedValue(guessedNumber);
 }
