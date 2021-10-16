@@ -28,6 +28,10 @@ function renderDice(diceValue) {
     document.querySelector("img").setAttribute("src", diceImage);
 }
 
+function renderOutcome(outcomeString) {
+    document.getElementById("outcome").textContent = outcomeString;
+}
+
 function startTimer(seconds) {
     let counter = setInterval(timer, 1000);
     function timer() {
@@ -45,16 +49,13 @@ function startTimer(seconds) {
                 console.log(score);
                 let finalScore = document.getElementById("score");
                 finalScore.textContent = SCORE + score;
-                let outcome = document.getElementById("outcome");
-                outcome.textContent = CORRECT_CHOICE_SELECTED_MESSAGE;
+                renderOutcome(CORRECT_CHOICE_SELECTED_MESSAGE);
                 guessedNumber = 0;
             } else if(guessedNumber != diceValue && guessedNumber != 0) {
-                let outcome = document.getElementById("outcome");
-                outcome.textContent = WRONG_CHOICE_SELECTED_MESSAGE;
+                renderOutcome(WRONG_CHOICE_SELECTED_MESSAGE);
                 guessedNumber = 0;
             } else {
-                let outcome = document.getElementById("outcome");
-                outcome.textContent = NO_CHOICE_SELECTED_MESSAGE;
+                renderOutcome(NO_CHOICE_SELECTED_MESSAGE);
             }
         }
 
