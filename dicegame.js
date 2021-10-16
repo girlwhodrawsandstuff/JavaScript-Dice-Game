@@ -46,14 +46,16 @@ function startTimer(seconds) {
       const diceValue = Math.floor(Math.random() * 6) + 1;
       renderDice(diceValue);
 
-      if (guessedNumber === diceValue) {
+      if (guessedNumber == diceValue) {
         score += 1;
         renderScore(score);
         renderOutcome(CORRECT_CHOICE_SELECTED_MESSAGE);
         guessedNumber = 0;
+        renderGuessedValue("-")
       } else if (guessedNumber != diceValue && guessedNumber != 0) {
         renderOutcome(WRONG_CHOICE_SELECTED_MESSAGE);
         guessedNumber = 0;
+        renderGuessedValue("-")
       } else {
         renderOutcome(NO_CHOICE_SELECTED_MESSAGE);
       }
