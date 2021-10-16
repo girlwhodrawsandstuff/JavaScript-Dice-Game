@@ -2,12 +2,8 @@ let guessedNumber = 0
 
 function clickedButton(element) {
     guessedNumber = element.value
-    // console.log(guessedNumber)
+    document.getElementById("guessed-number").textContent = "Guess: " + guessedNumber
 }
-
-// TODO: handle edge cases
-// - clear guessed number with each round
-// - if use does not enter anything, show a different message
 
 // TODO: 
 // - save all constants like textContent in separate variables

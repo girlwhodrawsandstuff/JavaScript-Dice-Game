@@ -67,3 +67,12 @@
 .play-btn:hover {
     background-color: #5cb1b3;
 }
+
+#guessed-number{
+    color: white;
+    align-self: flex-end;
+    background-color: #38A3A5;
+    padding: 0.5%;
+    position: absolute;
+    margin-top: 58px;
+}
