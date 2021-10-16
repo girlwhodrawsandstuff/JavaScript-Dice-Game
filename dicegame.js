@@ -1,8 +1,15 @@
+// constants
+const CORRECT_CHOICE_SELECTED_MESSAGE = "Your choice was correct!"
+const WRONG_CHOICE_SELECTED_MESSAGE = "Your choice was wrong!"
+const NO_CHOICE_SELECTED_MESSAGE = "You haven't guessed this round"
+const GUESS = "Guess: "
+const SCORE = "Score: "
+
 let guessedNumber = 0
 
 function clickedButton(element) {
     guessedNumber = element.value
-    document.getElementById("guessed-number").textContent = "Guess: " + guessedNumber
+    document.getElementById("guessed-number").textContent = GUESS + guessedNumber
 }
 
 // TODO: 
@@ -33,17 +40,17 @@ function startTimer(time) {
                 score += 1
                 console.log(score)
                 let finalScore = document.getElementById("score")
-                finalScore.textContent = "Score: " + score
+                finalScore.textContent = SCORE + score
                 let outcome = document.getElementById("outcome")
-                outcome.textContent = "Your choice was correct!"
+                outcome.textContent = CORRECT_CHOICE_SELECTED_MESSAGE
                 guessedNumber = 0
             } else if(guessedNumber != randomNumber && guessedNumber != 0) {
                 let outcome = document.getElementById("outcome")
-                outcome.textContent = "Your choice was wrong!"
+                outcome.textContent = WRONG_CHOICE_SELECTED_MESSAGE
                 guessedNumber = 0
             } else {
                 let outcome = document.getElementById("outcome")
-                outcome.textContent = "You haven't guessed this round"
+                outcome.textContent = NO_CHOICE_SELECTED_MESSAGE
             }
         }
     } 
